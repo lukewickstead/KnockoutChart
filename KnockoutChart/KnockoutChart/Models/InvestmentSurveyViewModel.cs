@@ -6,6 +6,6 @@
         public int MonthlyInvestmentAmount { get; set; }
         public int TargetValue { get; set; }
         public int TimeScale{ get; set; }
-        public string RiskLevel { get; set; }
+        public RiskLevel RiskLevel { get; set; }
     }
 }

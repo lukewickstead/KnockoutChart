@@ -79,7 +79,6 @@ define(['knockout', 'moment', 'jquery', 'toastr', 'koValidation', 'console', 'in
                     RiskLevel : self.riskLevel()
                 };
                 
-                console.log(investmentSurvey);
                 self.isSubmitted(true);
                 
                 $.ajax('InvestmentSurvey/Submit', {
@@ -89,8 +88,6 @@ define(['knockout', 'moment', 'jquery', 'toastr', 'koValidation', 'console', 'in
                     dataType: 'json',
                     success: function(result) {                       
                         self.isSubmitted(true)
-                        console.log('Survey Submitted: ' + result);
-                        toastr.success("Thank you, your survey has been submitted.");
                         investmentChart(result);
                     },
                     error: function (xhr, ajaxOptions, thrownError) {                       

@@ -19,7 +19,7 @@ define(['d3', 'dimple'],
             ];
 
             // X AXIS           
-            var x = myChart.addTimeAxis("x", "investmentDate", "%Y-%m-%d", "%Y");
+            var x = myChart.addTimeAxis("x", "investmentDate", "%Y-%m-%d", "%m/%y");
             x.title = "Date";
             x.fontFamily = "serif";
 
@@ -36,7 +36,7 @@ define(['d3', 'dimple'],
             maxChart.tooltipFontSize = "12px";
             maxChart.tooltipFontFamily = "serif";
             maxChart.getTooltipText = function (e) {
-                return ["Your projected maximum portfolio value would be £" + e.y + " by the year " + e.xField[0].getFullYear()];
+                return ["Your projected maximum portfolio value would be £" + e.y + " by " + e.xField[0].toDateString()];
             };
 
             // MIN CHART
@@ -47,7 +47,7 @@ define(['d3', 'dimple'],
             minChart.tooltipFontSize = "12px";
             minChart.tooltipFontFamily = "serif";
             minChart.getTooltipText = function (e) {
-                return ["Your projected minimum portfolio value would be £" + e.y + " by the year " + e.xField[0].getFullYear()];
+                return ["Your projected minimum portfolio value would be £" + e.y + " by " + e.xField[0].toDateString()];
             };
 
             // INVESTED CHART
@@ -58,7 +58,7 @@ define(['d3', 'dimple'],
             investedChart.tooltipFontSize = "12px";
             investedChart.tooltipFontFamily = "serif";
             investedChart.getTooltipText = function (e) {
-                return ["You would have invested £" + e.y + " by the year " + e.xField[0].getFullYear()];
+                return ["You would have invested £" + e.y + " by  " + e.xField[0].toDateString()];
             };
 
             // LEGEND

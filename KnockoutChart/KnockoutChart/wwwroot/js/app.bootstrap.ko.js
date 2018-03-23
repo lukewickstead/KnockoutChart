@@ -19,9 +19,9 @@ define(['knockout', 'koValidation', 'investmentSurveyModel', 'toastr'],
             var surveyModel = new investmentSurveyModel();
             ko.applyBindings(surveyModel);
 
-            surveyModel.lumpSumInvestmentAmount(10000);
+            surveyModel.lumpSumInvestmentAmount(1000);
             surveyModel.monthlyInvestmentAmount(250),
-            surveyModel.targetValue(10000),
+            surveyModel.targetValue(5000),
             surveyModel.timeScale(5),
             surveyModel.riskLevel('Medium')
         }

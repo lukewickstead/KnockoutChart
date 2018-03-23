@@ -92,12 +92,8 @@
             </div>
         </div>
 
-        <!--Results Two-->
+        <!--Results-->
         <div id="resultsPage" data-bind="visible: isSubmitted()">
-            <div class="row">
-                Chart will go here
-            </div>
-            
             <div id="chartContainer">
             </div>
         </div>
@@ -108,7 +104,7 @@
 <!--Buttons-->
 <button data-bind="click: submit, enable: isValid(), visible: !isSubmitted()" class="btn btn-primary">Submit</button>
 
-<legend class="well">
-    <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>
-    <strong data-bind="text: errors().length"></strong>
-</legend>
+@*<legend class="well">*@
+@*    <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>*@
+@*    <strong data-bind="text: errors().length"></strong>*@
+@*</legend>*@
