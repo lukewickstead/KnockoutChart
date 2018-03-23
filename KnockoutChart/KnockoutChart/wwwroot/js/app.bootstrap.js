@@ -9,6 +9,8 @@ requirejs.config({
         'koValidation': '../lib/knockout-validation/dist/knockout.validation',
         'moment': '../lib/moment/moment',
         'toastr': '../lib/toastr/toastr',
+        'd3' : '../lib/d3/d3.min',
+        'dimple' : '../lib/dimple/dimple.v2.3.0.min',
 
         // window exposure
         'console': 'window.console',
@@ -17,6 +19,7 @@ requirejs.config({
         'bootstrap.ko': 'app.bootstrap.ko',
         'bootstrap.toastr': 'app.bootstrap.toastr',
         'bootstrap.jqueryUi': 'app.bootstrap.jqueryUi',
+        'investmentChart': 'app.investmentChart',
 
         'investmentSurveyModel': 'models.investmentSurveyModel'
     }

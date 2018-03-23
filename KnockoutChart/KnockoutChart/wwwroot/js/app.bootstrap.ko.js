@@ -16,6 +16,13 @@ define(['knockout', 'koValidation', 'investmentSurveyModel', 'toastr'],
                 errorMessageClass: 'alert alert-danger'
             }, true);
 
-            ko.applyBindings(new investmentSurveyModel());
+            var surveyModel = new investmentSurveyModel();
+            ko.applyBindings(surveyModel);
+
+            surveyModel.lumpSumInvestmentAmount(10000);
+            surveyModel.monthlyInvestmentAmount(250),
+            surveyModel.targetValue(10000),
+            surveyModel.timeScale(5),
+            surveyModel.riskLevel('Medium')
         }
     });

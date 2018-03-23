@@ -1,6 +1,6 @@
 "use strict";
-define(['knockout', 'moment', 'jquery', 'toastr', 'koValidation', 'console'],
-    function (ko, moment, $, toastr, console) {
+define(['knockout', 'moment', 'jquery', 'toastr', 'koValidation', 'console', 'investmentChart'],
+    function (ko, moment, $, toastr, koValidation, console, investmentChart) {
         return function investmentSurveyModel() {
 
             var self = this;
@@ -39,18 +39,7 @@ define(['knockout', 'moment', 'jquery', 'toastr', 'koValidation', 'console'],
             self.availablerRiskLevels = ko.observableArray(['Low', 'Medium', 'High']);
             self.riskLevel = ko.observable().extend({
                 required: {message: 'Please select your risk level'}
-            });
-
-            // PAGE
-            self.page = ko.observable(1);
-
-            self.gotoPageOne = function () {
-                self.page(1);
-            };
-
-            self.gotoPageTwo = function () {
-                self.page(2);
-            };
+            });          
 
             // VALIDATION
             self.lumpSumInvestmentAmountBlurEvent  = function () {
@@ -91,6 +80,9 @@ define(['knockout', 'moment', 'jquery', 'toastr', 'koValidation', 'console'],
                 };
                 
                 console.log(investmentSurvey);
+
+                self.isSubmitted(true);
+                investmentChart();
                 
                 // $.ajax('Survey/Submit', {
                 //     data : JSON.stringify(theModel),
