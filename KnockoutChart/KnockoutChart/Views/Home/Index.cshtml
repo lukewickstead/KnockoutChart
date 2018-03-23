@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Investment Survey";
+}
+
+<form role="form" class="form-horizontal">
+
+    <div class="survey-form-container">
+        <h2>Investment Details</h2>
+    
+        <!--Page One-->
+        <div id="pageOne" data-bind="visible: page() == 1">
+            <div class="row">
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"
+                               for="name">Lump Sum Investment Amount</label>
+
+                        <div class="col-md-8">
+                            <input class="form-control"
+                                   id="lumpSumInvestmentAmount"
+                                   type="text"
+                                   placeholder="£1,000"
+                                   data-bind="value: lumpSumInvestmentAmount, event: { blur: lumpSumInvestmentAmountBlurEvent }"/>
+                            <div class="alert alert-danger fade in" data-bind="validationMessage: lumpSumInvestmentAmount"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"
+                               for="name">Monthly Investment Amount</label>
+
+                        <div class="col-md-8">
+                            <input class="form-control"
+                                   id="monthlyInvestmentAmount"
+                                   type="text"
+                                   placeholder="£1,000"
+                                   data-bind="value: monthlyInvestmentAmount, event: { blur: monthlyInvestmentAmountBlurEvent }"/>
+                            <div class="alert alert-danger fade in" data-bind="validationMessage: monthlyInvestmentAmount"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"
+                               for="name">Target Value</label>
+
+                        <div class="col-md-8">
+                            <input class="form-control"
+                                   id="targetValue"
+                                   type="text"
+                                   placeholder="£1,000"
+                                   data-bind="value: targetValue, event: { blur: targetValueBlurEvent }"/>
+                            <div class="alert alert-danger fade in" data-bind="validationMessage: targetValueBlurEvent"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"
+                               for="name">Time Scale</label>
+
+                        <div class="col-md-8">
+                            <input class="form-control"
+                                   id="timeScale"
+                                   type="text"
+                                   placeholder="10 years"
+                                   data-bind="value: timeScale, event: { blur: timeScaleBlurEvent }"/>
+                            <div class="alert alert-danger fade in" data-bind="validationMessage: timeScale"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-md-2 control-label"
+                           for="title">Risk Level</label>
+
+                    <div class="col-md-8">
+                        <select class="form-control"
+                                id="title"
+                                data-bind="options: availablerRiskLevels, value: riskLevel, optionsCaption: 'Please select...', event: { blur: riskLevelBlurEvent }">
+                        </select>
+                        <div class="alert alert-danger fade in"
+                             data-bind="validationMessage: riskLevel"
+                             data-icon="glyphicon-heart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Page Two-->
+        <div id="pageTwo" data-bind="visible: page() == 2">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<!--Buttons-->
+<button data-bind="click: submit, enable: isValid(), visible: !isSubmitted()" class="btn btn-primary">Submit</button>
+
+<legend class="well">
+    <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>
+    <strong data-bind="text: errors().length"></strong>
+</legend>
