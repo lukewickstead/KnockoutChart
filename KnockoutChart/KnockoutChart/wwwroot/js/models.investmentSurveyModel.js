@@ -72,33 +72,32 @@ define(['knockout', 'moment', 'jquery', 'toastr', 'koValidation', 'console', 'in
          
             self.submit = function() {
                 var investmentSurvey = {
-                    lumpSumInvestmentAmount : self.lumpSumInvestmentAmount(),
-                    monthlyInvestmentAmount : self.monthlyInvestmentAmount(),
-                    targetValue : self.targetValue(),
-                    timeScale : self.timeScale(),
-                    riskLevel : self.riskLevel()
+                    LumpSumInvestmentAmount : self.lumpSumInvestmentAmount(),
+                    MonthlyInvestmentAmount : self.monthlyInvestmentAmount(),
+                    TargetValue : self.targetValue(),
+                    TimeScale : self.timeScale(),
+                    RiskLevel : self.riskLevel()
                 };
                 
                 console.log(investmentSurvey);
-
                 self.isSubmitted(true);
-                investmentChart();
                 
-                // $.ajax('Survey/Submit', {
-                //     data : JSON.stringify(theModel),
-                //     contentType : 'application/json; charset=utf-8',
-                //     type : 'POST',
-                //     dataType: 'json',
-                //     success: function(result) {
-                //         self.isSubmitted(true)
-                //         console.log('Survey Submitted: ' + result);
-                //         toastr.success("Thank you, your survey has been submitted.");
-                //     },
-                //     error: function (xhr, ajaxOptions, thrownError) {                       
-                //         toastr.error("An error was returned, please try again.");
-                //         console.log('Survey Submitted Error: '+  thrownError, ', ' + xhr.responseText);
-                //     }
-                // });                
+                $.ajax('InvestmentSurvey/Submit', {
+                    data : JSON.stringify(investmentSurvey),
+                    contentType : 'application/json; charset=utf-8',
+                    type : 'POST',
+                    dataType: 'json',
+                    success: function(result) {                       
+                        self.isSubmitted(true)
+                        console.log('Survey Submitted: ' + result);
+                        toastr.success("Thank you, your survey has been submitted.");
+                        investmentChart(result);
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {                       
+                        toastr.error("An error was returned, please try again.");
+                        console.log('Survey Submitted Error: '+  thrownError, ', ' + xhr.responseText);
+                    }
+                });                
             };            
         };
     });
